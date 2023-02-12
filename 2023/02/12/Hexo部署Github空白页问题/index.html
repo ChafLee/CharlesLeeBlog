@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="鸡腿面加卤蛋的小站">
 <meta property="og:description" content="记录一下Hexo部署到Github pages访问页面显示空白问题在服务器上安装部署Hexo后，访问没问题，然后偶然看到有博主的网站域名是github.io结尾的，于是在一番探索下尝试将静态文件部署到github pages进行托管，结果在访问时确实空白页面，百度之后大多数都是说index.html是空白的，但我的index文件确实是有内容的，但依旧是空白显示，我也尝试将主题切换为原始landsc">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-02-12T14:37:22.293Z">
-<meta property="article:modified_time" content="2023-02-12T14:37:22.293Z">
+<meta property="article:published_time" content="2023-02-12T15:02:19.284Z">
+<meta property="article:modified_time" content="2023-02-12T15:02:19.284Z">
 <meta property="article:author" content="Charles Lee">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="linux">
@@ -65,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"chaflee.github.io","author":"Charles Lee","root":"/charlesleeblog/","typed_text":["a java developer","a little coder"],"theme_version":"2.0.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/avatar.jpg","icon16":"/img/avatar.jpg","icon32":"/img/avatar.jpg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"search":{"enable":true,"type":"local","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-02-12 22:37:22"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-02-12 23:02:19"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/charlesleeblog/css/index.css?v=2.0.2" id="trm-switch-style">
@@ -375,7 +375,7 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-clock trm-icon"></i><br>
-            22:37
+            23:02
         </div>
     </div>
     <div class="col-sm-4">
@@ -406,6 +406,9 @@
 <p>真正的问题在我打开控制台后才发现所有的静态资源文件都是NOT_FOUND</p>
 <p>修改<code>_config.yml</code>的<code>url</code>和<code>root</code>参数</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://chaflee.github.io/YourProjectName</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/YourProjectName/</span></span><br></pre></td></tr></table></figure>
+<p>重新生成文件部署</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hexo clean &amp;&amp; npx hexo g -d</span><br></pre></td></tr></table></figure>
+
 <p>访问<a href="https://chaflee.github.io/YourProjectName/">https://chaflee.github.io/YourProjectName/</a></p>
 <p><font color=green size=5><b>成功！！！</b></font></p>
 <h2 id="以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"><a href="#以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀" class="headerlink" title="以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"></a>以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀</h2><ol>
@@ -436,28 +439,28 @@
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/charlesleeblog/2020/08/08/Hexo%20Centos7%E9%83%A8%E7%BD%B2/" class="trm-cover-frame trm-anima-link">
+        <a href="/charlesleeblog/2023/02/12/Vim%E9%85%8D%E7%BD%AE/" class="trm-cover-frame trm-anima-link">
             
             
-                <img alt="cover" class="no-fancybox" src="/charlesleeblog/img/source_cover/1.jpg">
+                <img alt="cover" class="no-fancybox" src="/charlesleeblog/img/block.jpg">
             
         </a>
         
         <div class="trm-card-descr">
             <div class="trm-label trm-category trm-mb-20">
-                <a href=" /charlesleeblog/categories/%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/">
-                    安装部署
+                <a href=" /charlesleeblog/categories/%E6%8A%80%E6%9C%AF%E9%9A%8F%E7%AC%94/">
+                    技术随笔
                 </a>
             </div>
             <h5>
-                <a href="/charlesleeblog/2020/08/08/Hexo%20Centos7%E9%83%A8%E7%BD%B2/" class="trm-anima-link">
-                    Hexo Centos7部署
+                <a href="/charlesleeblog/2023/02/12/Vim%E9%85%8D%E7%BD%AE/" class="trm-anima-link">
+                    Vim配置
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>20/08/08</li>
-                <li>10:35</li>
+                <li>23/02/12</li>
+                <li>23:00</li>
                 
                 
             </ul>

@@ -47,6 +47,9 @@
 <p>真正的问题在我打开控制台后才发现所有的静态资源文件都是NOT_FOUND</p>
 <p>修改<code>_config.yml</code>的<code>url</code>和<code>root</code>参数</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://chaflee.github.io/YourProjectName</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/YourProjectName/</span></span><br></pre></td></tr></table></figure>
+<p>重新生成文件部署</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx hexo clean &amp;&amp; npx hexo g -d</span><br></pre></td></tr></table></figure>
+
 <p>访问<a href="https://chaflee.github.io/YourProjectName/">https://chaflee.github.io/YourProjectName/</a></p>
 <p><font color=green size=5><b>成功！！！</b></font></p>
 <h2 id="以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"><a href="#以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀" class="headerlink" title="以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"></a>以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀</h2><ol>
@@ -68,6 +71,21 @@
         <tag>hexo</tag>
         <tag>linux</tag>
         <tag>centos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vim配置</title>
+    <url>/charlesleeblog/2023/02/12/Vim%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="编辑VIM配置文件"><a href="#编辑VIM配置文件" class="headerlink" title="编辑VIM配置文件"></a>编辑VIM配置文件</h3><h4 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/share/vim/vimrc ~/.vimrc</span><br><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure>
+<h4 id="LINUX"><a href="#LINUX" class="headerlink" title="LINUX"></a>LINUX</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/vimrc</span><br></pre></td></tr></table></figure>
+<h3 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">colorscheme default     &quot; 设置颜色主题</span><br><span class="line">syntax on               &quot; 语法高亮</span><br><span class="line">filetype on             &quot; 检测文件的类型</span><br><span class="line">set number              &quot; 显示行号</span><br><span class="line">set cursorline          &quot; 用浅色高亮当前行</span><br><span class="line">&quot;autocmd InsertLeave * se nocul</span><br><span class="line">&quot;autocmd InsertEnter * se cul</span><br><span class="line">set ruler               &quot; 在编辑过程中，在右下角显示光标位置的状态行</span><br><span class="line">set laststatus=2        &quot; 显示状态栏 (默认值为 1, 无法显示状态栏)</span><br><span class="line">set statusline=\ %&lt;%F[%1*%M%*%n%R%H]%=\ %y\ %0(%&#123;&amp;fileformat&#125;\ %&#123;&amp;encoding&#125;\ %c:%l/%L%)\</span><br><span class="line">                        &quot; 设置在状态行显示的信息</span><br><span class="line">set tabstop=4           &quot; Tab键的宽度</span><br><span class="line">set softtabstop=4</span><br><span class="line">set shiftwidth=4        &quot; 统一缩进为4</span><br><span class="line">set autoindent          &quot; vim使用自动对齐，也就是把当前行的对齐格式应用到下一行(自动缩进)</span><br><span class="line">set cindent             &quot; (cindent是特别针对 C语言语法自动缩进)</span><br><span class="line">set smartindent         &quot; 依据上面的对齐格式，智能的选择对齐方式，对于类似C语言编写上有用</span><br><span class="line">set scrolloff=3         &quot; 光标移动到buffer的顶部和底部时保持3行距离</span><br><span class="line">set incsearch           &quot; 输入搜索内容时就显示搜索结果</span><br><span class="line">set hlsearch            &quot; 搜索时高亮显示被找到的文本</span><br><span class="line">set foldmethod=indent   &quot; 设置缩进折叠</span><br><span class="line">set foldlevel=99        &quot; 设置折叠层数</span><br><span class="line">nnoremap &lt;space&gt; @=((foldclosed(line(&#x27;.&#x27;)) &lt; 0) ? &#x27;zc&#x27; : &#x27;zo&#x27;)&lt;CR&gt;</span><br><span class="line">                        &quot; 用空格键来开关折叠</span><br><span class="line">&quot; 自动跳转到上次退出的位置</span><br><span class="line">if has(&quot;autocmd&quot;)</span><br><span class="line">    au BufReadPost * if line(&quot;&#x27;\&quot;&quot;) &gt; 1 &amp;&amp; line(&quot;&#x27;\&quot;&quot;) &lt;= line(&quot;$&quot;) | exe &quot;normal! g&#x27;\&quot;&quot; | endif</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 按Esc退出到命令模式</span></span><br><span class="line">:wq! <span class="comment"># 退出保存配置</span></span><br><span class="line"><span class="comment"># 刷新修改的配置</span></span><br><span class="line"><span class="built_in">source</span> /etc/vimrc</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术随笔</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>vim</tag>
       </tags>
   </entry>
 </search>
