@@ -25,4 +25,35 @@
         <tag>centos</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo部署Github空白页问题</title>
+    <url>/2023/02/12/Hexo%E9%83%A8%E7%BD%B2Github%E7%A9%BA%E7%99%BD%E9%A1%B5%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="记录一下Hexo部署到Github-pages访问页面显示空白问题"><a href="#记录一下Hexo部署到Github-pages访问页面显示空白问题" class="headerlink" title="记录一下Hexo部署到Github pages访问页面显示空白问题"></a>记录一下Hexo部署到Github pages访问页面显示空白问题</h2><p>在服务器上安装部署Hexo后，访问没问题，然后偶然看到有博主的网站域名是github.io结尾的</p>
+<p>我的Node版本是v16.18.1，在一番百度下</p>
+<h3 id="卸载npm"><a href="#卸载npm" class="headerlink" title="卸载npm"></a>卸载npm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm uninstall npm -g</span><br></pre></td></tr></table></figure>
+<h3 id="卸载node"><a href="#卸载node" class="headerlink" title="卸载node"></a>卸载node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum remove nodejs npm -y</span><br></pre></td></tr></table></figure>
+<p>看看是否有残留<br>进入 /usr/local/lib 删除所有 node 和 node_modules文件夹</p>
+<p>进入 /usr/local/include 删除所有 node 和 node_modules 文件夹</p>
+<p>进入 /usr/local/bin 删除 node 的可执行文件</p>
+<h3 id="安装新版本node"><a href="#安装新版本node" class="headerlink" title="安装新版本node"></a>安装新版本node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sL https://rpm.nodesource.com/setup_12.x | bash -</span><br></pre></td></tr></table></figure>
+<p>我需要的是nodejs12.x的版本，所以这里是setup_12.x</p>
+<p>最后执行安装命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum -y install nodejs</span><br><span class="line"><span class="comment"># 查看node版本</span></span><br><span class="line">node -v</span><br><span class="line">V12.22.12</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br><span class="line"><span class="comment"># 由于主题需要，需安装hexo-renderer-less hexo-renderer-ejs</span></span><br><span class="line">npm install hexo-renderer-less hexo-renderer-ejs --save</span><br><span class="line"><span class="comment"># 安装Hexo部署插件</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="配置部署信息"><a href="#配置部署信息" class="headerlink" title="配置部署信息"></a>配置部署信息</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编辑_config.yml的deploy参数</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/xxx/xxx.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 部署</span></span><br><span class="line">npx hexo clean</span><br><span class="line">npx hexo generate</span><br><span class="line">npx hexo deploy</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><ol>
+<li><p><code>npm install</code> 时提示以下信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules/fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform <span class="keyword">for</span> fsevents@2.3.2: wanted &#123;<span class="string">&quot;os&quot;</span>:<span class="string">&quot;darwin&quot;</span>,<span class="string">&quot;arch&quot;</span>:<span class="string">&quot;any&quot;</span>&#125; (current: &#123;<span class="string">&quot;os&quot;</span>:<span class="string">&quot;linux&quot;</span>,<span class="string">&quot;arch&quot;</span>:<span class="string">&quot;x64&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>只需在命令后加 <code>--no-optional</code> 参数即可</p>
+</li>
+<li><p>安装nodejs-v12版本后，执行 <code>npx hexo clean</code> 时报错</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">ERROR &#123;</span><br><span class="line">  err: /usr/local/hexo/themes/async/scripts/helper/tag.js:21</span><br><span class="line">      const <span class="built_in">type</span> = hexo.theme.config?.assets?.icons?.<span class="built_in">type</span> || <span class="string">&#x27;font&#x27;</span></span><br><span class="line">                                     ^</span><br><span class="line">  </span><br><span class="line">  SyntaxError: Unexpected token <span class="string">&#x27;.&#x27;</span></span><br><span class="line">      at new Script (vm.js:88:7)</span><br><span class="line">      at createScript (vm.js:261:10)</span><br><span class="line">      at runInThisContext (vm.js:309:10)</span><br><span class="line">      at /usr/local/hexo/node_modules/hexo/lib/hexo/index.js:303:18</span><br><span class="line">      at tryCatcher (/usr/local/hexo/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">      at Promise._settlePromiseFromHandler (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:547:31)</span><br><span class="line">      at Promise._settlePromise (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:604:18)</span><br><span class="line">      at Promise._settlePromise0 (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:649:10)</span><br><span class="line">      at Promise._settlePromises (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:729:18)</span><br><span class="line">      at _drainQueueStep (/usr/local/hexo/node_modules/bluebird/js/release/async.js:93:12)</span><br><span class="line">      at _drainQueue (/usr/local/hexo/node_modules/bluebird/js/release/async.js:86:9)</span><br><span class="line">      at Async._drainQueues (/usr/local/hexo/node_modules/bluebird/js/release/async.js:102:5)</span><br><span class="line">      at Immediate.Async.drainQueues [as _onImmediate] (/usr/local/hexo/node_modules/bluebird/js/release/async.js:15:14)</span><br><span class="line">      at processImmediate (internal/timers.js:461:21)</span><br><span class="line">&#125; Script load failed: %s themes/async/scripts/helper/tag.js</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>部署安装</category>
+      </categories>
+  </entry>
 </search>
