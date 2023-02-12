@@ -7,15 +7,15 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="一、安装Node.js使用EPEL安装12345678# 1.先确认系统是否已经安装epel-release包$yum info epel-release# 2.若输出相关信息，则已安装，否则执行下面命令安装$sudo yum install epel-release# 3.安装Node.js$sudo yum install nodejs# 4.检验版本$node -v 二、安装git12345">
+<meta name="description" content="记录一下Hexo部署到Github pages访问页面显示空白问题在服务器上安装部署Hexo后，访问没问题，然后偶然看到有博主的网站域名是github.io结尾的，于是在一番探索下尝试将静态文件部署到github pages进行托管，结果在访问时确实空白页面，百度之后大多数都是说index.html是空白的，但我的index文件确实是有内容的，但依旧是空白显示，我也尝试将主题切换为原始landsc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Centos7部署">
-<meta property="og:url" content="https://chaflee.github.io/charlesleeblog/2020/08/08/Hexo%20Centos7%E9%83%A8%E7%BD%B2/">
+<meta property="og:title" content="Hexo部署Github空白页问题">
+<meta property="og:url" content="https://chaflee.github.io/charlesleeblog/2023/02/12/Hexo%E9%83%A8%E7%BD%B2Github%E7%A9%BA%E7%99%BD%E9%A1%B5%E9%97%AE%E9%A2%98/">
 <meta property="og:site_name" content="鸡腿面加卤蛋的小站">
-<meta property="og:description" content="一、安装Node.js使用EPEL安装12345678# 1.先确认系统是否已经安装epel-release包$yum info epel-release# 2.若输出相关信息，则已安装，否则执行下面命令安装$sudo yum install epel-release# 3.安装Node.js$sudo yum install nodejs# 4.检验版本$node -v 二、安装git12345">
+<meta property="og:description" content="记录一下Hexo部署到Github pages访问页面显示空白问题在服务器上安装部署Hexo后，访问没问题，然后偶然看到有博主的网站域名是github.io结尾的，于是在一番探索下尝试将静态文件部署到github pages进行托管，结果在访问时确实空白页面，百度之后大多数都是说index.html是空白的，但我的index文件确实是有内容的，但依旧是空白显示，我也尝试将主题切换为原始landsc">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-08-08T02:35:24.000Z">
-<meta property="article:modified_time" content="2023-02-11T07:38:18.086Z">
+<meta property="article:published_time" content="2023-02-12T14:37:22.293Z">
+<meta property="article:modified_time" content="2023-02-12T14:37:22.293Z">
 <meta property="article:author" content="Charles Lee">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="linux">
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary">
 
 
-<title >Hexo Centos7部署</title>
+<title >Hexo部署Github空白页问题</title>
 
 <!-- Favicon -->
 
@@ -65,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"chaflee.github.io","author":"Charles Lee","root":"/charlesleeblog/","typed_text":["a java developer","a little coder"],"theme_version":"2.0.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/avatar.jpg","icon16":"/img/avatar.jpg","icon32":"/img/avatar.jpg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)Hey! Good again!","hideText":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"search":{"enable":true,"type":"local","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-02-11 15:38:18"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-02-12 22:37:22"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/charlesleeblog/css/index.css?v=2.0.2" id="trm-switch-style">
@@ -230,7 +230,7 @@
                             NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            Hexo Centos7部署
+                            Hexo部署Github空白页问题
                         </h1>
 
                         
@@ -240,7 +240,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        2020
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -351,7 +351,7 @@
             </div>
             <div name="tabs-toc" class="trm-tabs-item active">
                 <div class="post-toc">
-    <ol class="toc"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#一、安装Node-js"  data-scroll-to="#一、安装Node-js"><span class="toc-number">1.</span> <span class="toc-text">一、安装Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#使用EPEL安装"  data-scroll-to="#使用EPEL安装"><span class="toc-number">1.1.</span> <span class="toc-text">使用EPEL安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#二、安装git"  data-scroll-to="#二、安装git"><span class="toc-number">2.</span> <span class="toc-text">二、安装git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#配置全局环境变量"  data-scroll-to="#配置全局环境变量"><span class="toc-number">2.1.</span> <span class="toc-text">配置全局环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#三、安装Hexo"  data-scroll-to="#三、安装Hexo"><span class="toc-number">3.</span> <span class="toc-text">三、安装Hexo</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#四、配置Hexo主题"  data-scroll-to="#四、配置Hexo主题"><span class="toc-number">4.</span> <span class="toc-text">四、配置Hexo主题</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#记录一下Hexo部署到Github-pages访问页面显示空白问题"  data-scroll-to="#记录一下Hexo部署到Github-pages访问页面显示空白问题"><span class="toc-number">1.</span> <span class="toc-text">记录一下Hexo部署到Github pages访问页面显示空白问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#卸载npm"  data-scroll-to="#卸载npm"><span class="toc-number">1.1.</span> <span class="toc-text">卸载npm</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#卸载node"  data-scroll-to="#卸载node"><span class="toc-number">1.2.</span> <span class="toc-text">卸载node</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#安装新版本node"  data-scroll-to="#安装新版本node"><span class="toc-number">1.3.</span> <span class="toc-text">安装新版本node</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#安装依赖"  data-scroll-to="#安装依赖"><span class="toc-number">1.4.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#配置部署信息"  data-scroll-to="#配置部署信息"><span class="toc-number">1.6.</span> <span class="toc-text">配置部署信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"  data-scroll-to="#以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"><span class="toc-number">2.</span> <span class="toc-text">以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀</span></a></li></ol>
 </div>
             </div>
         </div>
@@ -369,13 +369,13 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
-            08/08
+            02/12
         </div>
     </div>
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-clock trm-icon"></i><br>
-            10:35
+            22:37
         </div>
     </div>
     <div class="col-sm-4">
@@ -387,18 +387,38 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h2 id="一、安装Node-js"><a href="#一、安装Node-js" class="headerlink" title="一、安装Node.js"></a>一、安装Node.js</h2><h3 id="使用EPEL安装"><a href="#使用EPEL安装" class="headerlink" title="使用EPEL安装"></a>使用EPEL安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.先确认系统是否已经安装epel-release包</span></span><br><span class="line"><span class="variable">$yum</span> info epel-release</span><br><span class="line"><span class="comment"># 2.若输出相关信息，则已安装，否则执行下面命令安装</span></span><br><span class="line"><span class="variable">$sudo</span> yum install epel-release</span><br><span class="line"><span class="comment"># 3.安装Node.js</span></span><br><span class="line"><span class="variable">$sudo</span> yum install nodejs</span><br><span class="line"><span class="comment"># 4.检验版本</span></span><br><span class="line"><span class="variable">$node</span> -v</span><br></pre></td></tr></table></figure>
-<h2 id="二、安装git"><a href="#二、安装git" class="headerlink" title="二、安装git"></a>二、安装git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.卸载旧版本</span></span><br><span class="line"><span class="variable">$yum</span> remove git</span><br><span class="line"><span class="comment"># 2.安装yum源的Git版本</span></span><br><span class="line"><span class="variable">$yum</span> install -y git</span><br><span class="line"><span class="comment"># 3.查看版本</span></span><br><span class="line"><span class="variable">$git</span> version</span><br></pre></td></tr></table></figure>
-<h3 id="配置全局环境变量"><a href="#配置全局环境变量" class="headerlink" title="配置全局环境变量"></a>配置全局环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 编辑配置文件</span></span><br><span class="line"><span class="variable">$vim</span> /etc/profile</span><br><span class="line"><span class="comment"># 2. 在 /etc/profile 文件中末尾追加以下内容(相信你肯定已熟练掌握 Vim 使用啦)</span></span><br><span class="line"><span class="variable">$export</span> PATH=<span class="variable">$PATH</span>:/usr/local/git/bin</span><br><span class="line"><span class="comment"># 3. 回到终端, 刷新配置</span></span><br><span class="line"><span class="variable">$source</span> /etc/profile</span><br><span class="line"><span class="comment"># 4. 查看版本</span></span><br><span class="line"><span class="variable">$git</span> version </span><br></pre></td></tr></table></figure>
-<h2 id="三、安装Hexo"><a href="#三、安装Hexo" class="headerlink" title="三、安装Hexo"></a>三、安装Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.安装npm</span></span><br><span class="line"><span class="variable">$yum</span> install npm</span><br><span class="line"><span class="comment"># 2.安装hexo</span></span><br><span class="line"><span class="variable">$npm</span> install -g hexo-cli</span><br><span class="line"><span class="comment"># 3.创建hexo项目文件夹</span></span><br><span class="line"><span class="variable">$mkdir</span> /usr/local/hexo</span><br><span class="line"><span class="comment"># 4.hexo初始化</span></span><br><span class="line"><span class="variable">$cd</span> /usr/local/hexo</span><br><span class="line"><span class="variable">$npx</span> hexo init</span><br><span class="line"><span class="comment"># 5.启动服务</span></span><br><span class="line"><span class="variable">$npx</span> hexo server</span><br><span class="line"><span class="comment"># 后台启动</span></span><br><span class="line"><span class="variable">$nohup</span> npx hexo server &gt; log.out 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="comment"># 后台启动后使用exit退出ssh</span></span><br></pre></td></tr></table></figure>
-<h2 id="四、配置Hexo主题"><a href="#四、配置Hexo主题" class="headerlink" title="四、配置Hexo主题"></a>四、配置Hexo主题</h2><p><a target="_blank" rel="noopener" href="https://async-docs.imalun.com/">Async主题</a>  点击下载 <a target="_blank" rel="noopener" href="https://github.com/MaLuns/hexo-theme-async">GitHUb</a></p>
-<ol>
-<li>下载源码包至服务器</li>
-<li>yum安装zip解压缩工具并解压<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$yum</span> install -y zip unzip</span><br><span class="line"><span class="variable">$unzip</span> -d /usr/local/hexo/themes async.zip</span><br></pre></td></tr></table></figure></li>
-<li>npm安装主题必须的组件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install --save hexo-theme-async hexo-renderer-less hexo-renderer-ejs</span><br></pre></td></tr></table></figure></li>
-<li>修改hexo目录下的_config.yml，将 <code>theme: landscape</code> 修改为 <code>theme: async</code></li>
-<li>重启hexo服务</li>
+    <h2 id="记录一下Hexo部署到Github-pages访问页面显示空白问题"><a href="#记录一下Hexo部署到Github-pages访问页面显示空白问题" class="headerlink" title="记录一下Hexo部署到Github pages访问页面显示空白问题"></a>记录一下Hexo部署到Github pages访问页面显示空白问题</h2><p>在服务器上安装部署Hexo后，访问没问题，然后偶然看到有博主的网站域名是github.io结尾的，于是在一番探索下尝试将静态文件部署到github pages进行托管，结果在访问时确实空白页面，百度之后大多数都是说index.html是空白的，但我的index文件确实是有内容的，但依旧是空白显示，我也尝试将主题切换为原始<code>landscape</code> 主题，但并没有任何作用，最后看到有说是node版本问题，我的Node版本是v16.18.1，在一番百度下大概率是因为node版本过高的原因</p>
+<h3 id="卸载npm"><a href="#卸载npm" class="headerlink" title="卸载npm"></a>卸载npm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm uninstall npm -g</span><br></pre></td></tr></table></figure>
+<h3 id="卸载node"><a href="#卸载node" class="headerlink" title="卸载node"></a>卸载node</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove nodejs npm -y</span><br></pre></td></tr></table></figure>
+<p>看看是否有残留<br>进入 /usr/local/lib 删除所有 node 和 node_modules文件夹</p>
+<p>进入 /usr/local/include 删除所有 node 和 node_modules 文件夹</p>
+<p>进入 /usr/local/bin 删除 node 的可执行文件</p>
+<h3 id="安装新版本node"><a href="#安装新版本node" class="headerlink" title="安装新版本node"></a>安装新版本node</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL https://rpm.nodesource.com/setup_12.x | bash -</span><br></pre></td></tr></table></figure>
+<p>我需要的是nodejs12.x的版本，所以这里是setup_12.x</p>
+<p>最后执行安装命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install nodejs</span><br><span class="line"><span class="comment"># 查看node版本</span></span><br><span class="line">node -v</span><br><span class="line">V12.22.12</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"><span class="comment"># 由于主题需要，需安装hexo-renderer-less hexo-renderer-ejs</span></span><br><span class="line">npm install hexo-renderer-less hexo-renderer-ejs --save</span><br><span class="line"><span class="comment"># 安装Hexo部署插件</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="配置部署信息"><a href="#配置部署信息" class="headerlink" title="配置部署信息"></a>配置部署信息</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑_config.yml的deploy参数</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/xxx/xxx.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 部署</span></span><br><span class="line">npx hexo clean</span><br><span class="line">npx hexo generate</span><br><span class="line">npx hexo deploy</span><br></pre></td></tr></table></figure>
+<p><font size=5 color=red><b>以上都没有用！！！</b></font></p>
+<p><font size=5 color=red><b>以上都没有用！！！</b></font></p>
+<p><font size=5 color=red><b>以上都没有用！！！</b></font></p>
+<p>真正的问题在我打开控制台后才发现所有的静态资源文件都是NOT_FOUND</p>
+<p>修改<code>_config.yml</code>的<code>url</code>和<code>root</code>参数</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://chaflee.github.io/YourProjectName</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/YourProjectName/</span></span><br></pre></td></tr></table></figure>
+<p>访问<a href="https://chaflee.github.io/YourProjectName/">https://chaflee.github.io/YourProjectName/</a></p>
+<p><font color=green size=5><b>成功！！！</b></font></p>
+<h2 id="以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"><a href="#以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀" class="headerlink" title="以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀"></a>以下是过程中的一些问题记录，虽然和这次问题可能没多大关系了😀</h2><ol>
+<li><p><code>npm install</code> 时提示以下信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules/fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform <span class="keyword">for</span> fsevents@2.3.2: wanted &#123;<span class="string">&quot;os&quot;</span>:<span class="string">&quot;darwin&quot;</span>,<span class="string">&quot;arch&quot;</span>:<span class="string">&quot;any&quot;</span>&#125; (current: &#123;<span class="string">&quot;os&quot;</span>:<span class="string">&quot;linux&quot;</span>,<span class="string">&quot;arch&quot;</span>:<span class="string">&quot;x64&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>只需在命令后加 <code>--no-optional</code> 参数即可</p>
+</li>
+<li><p>安装nodejs-v12版本后，执行 <code>npx hexo clean</code> 时报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">ERROR &#123;</span><br><span class="line">  err: /usr/local/hexo/themes/async/scripts/helper/tag.js:21</span><br><span class="line">      const <span class="built_in">type</span> = hexo.theme.config?.assets?.icons?.<span class="built_in">type</span> || <span class="string">&#x27;font&#x27;</span></span><br><span class="line">                                     ^</span><br><span class="line">  </span><br><span class="line">  SyntaxError: Unexpected token <span class="string">&#x27;.&#x27;</span></span><br><span class="line">      at new Script (vm.js:88:7)</span><br><span class="line">      at createScript (vm.js:261:10)</span><br><span class="line">      at runInThisContext (vm.js:309:10)</span><br><span class="line">      at /usr/local/hexo/node_modules/hexo/lib/hexo/index.js:303:18</span><br><span class="line">      at tryCatcher (/usr/local/hexo/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">      at Promise._settlePromiseFromHandler (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:547:31)</span><br><span class="line">      at Promise._settlePromise (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:604:18)</span><br><span class="line">      at Promise._settlePromise0 (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:649:10)</span><br><span class="line">      at Promise._settlePromises (/usr/local/hexo/node_modules/bluebird/js/release/promise.js:729:18)</span><br><span class="line">      at _drainQueueStep (/usr/local/hexo/node_modules/bluebird/js/release/async.js:93:12)</span><br><span class="line">      at _drainQueue (/usr/local/hexo/node_modules/bluebird/js/release/async.js:86:9)</span><br><span class="line">      at Async._drainQueues (/usr/local/hexo/node_modules/bluebird/js/release/async.js:102:5)</span><br><span class="line">      at Immediate.Async.drainQueues [as _onImmediate] (/usr/local/hexo/node_modules/bluebird/js/release/async.js:15:14)</span><br><span class="line">      at processImmediate (internal/timers.js:461:21)</span><br><span class="line">&#125; Script load failed: %s themes/async/scripts/helper/tag.js</span><br></pre></td></tr></table></figure>
+<p>原因就是v12版本的node也不兼容😅</p>
+</li>
 </ol>
+<p>但在我重新安装其他版本node时，执行切换node源版本命令时，出现一直还在重新安装v12版本且安装失败的错误，可以尝试清除一下yum源 <code>yum clean all</code> ，再尝试重新安装</p>
 
 </article>
     
@@ -413,12 +433,13 @@
         </h5>
     </div>
     
+    
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/charlesleeblog/2023/02/12/Hexo%E9%83%A8%E7%BD%B2Github%E7%A9%BA%E7%99%BD%E9%A1%B5%E9%97%AE%E9%A2%98/" class="trm-cover-frame trm-anima-link">
+        <a href="/charlesleeblog/2020/08/08/Hexo%20Centos7%E9%83%A8%E7%BD%B2/" class="trm-cover-frame trm-anima-link">
             
             
-                <img alt="cover" class="no-fancybox" src="/charlesleeblog/img/block.jpg">
+                <img alt="cover" class="no-fancybox" src="/charlesleeblog/img/source_cover/1.jpg">
             
         </a>
         
@@ -429,21 +450,20 @@
                 </a>
             </div>
             <h5>
-                <a href="/charlesleeblog/2023/02/12/Hexo%E9%83%A8%E7%BD%B2Github%E7%A9%BA%E7%99%BD%E9%A1%B5%E9%97%AE%E9%A2%98/" class="trm-anima-link">
-                    Hexo部署Github空白页问题
+                <a href="/charlesleeblog/2020/08/08/Hexo%20Centos7%E9%83%A8%E7%BD%B2/" class="trm-anima-link">
+                    Hexo Centos7部署
                 </a>
             </h5>
             <div class="trm-divider trm-mb-20 trm-mt-20"></div>
             <ul class="trm-card-data trm-label">
-                <li>23/02/12</li>
-                <li>22:37</li>
+                <li>20/08/08</li>
+                <li>10:35</li>
                 
                 
             </ul>
         </div>
     </div>
 </div>
-    
     
 </div>
 
