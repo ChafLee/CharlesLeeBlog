@@ -27,7 +27,7 @@
   </entry>
   <entry>
     <title>Hexo部署Github空白页问题</title>
-    <url>/charlesleeblog/2023/02/12/Hexo%E9%83%A8%E7%BD%B2Github%E7%A9%BA%E7%99%BD%E9%A1%B5%E9%97%AE%E9%A2%98/</url>
+    <url>/charlesleeblog/2022/12/30/Hexo%E9%83%A8%E7%BD%B2Github%E7%A9%BA%E7%99%BD%E9%A1%B5%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="记录一下Hexo部署到Github-pages访问页面显示空白问题"><a href="#记录一下Hexo部署到Github-pages访问页面显示空白问题" class="headerlink" title="记录一下Hexo部署到Github pages访问页面显示空白问题"></a>记录一下Hexo部署到Github pages访问页面显示空白问题</h2><p>在服务器上安装部署Hexo后，访问没问题，然后偶然看到有博主的网站域名是github.io结尾的，于是在一番探索下尝试将静态文件部署到github pages进行托管，结果在访问时确实空白页面，百度之后大多数都是说index.html是空白的，但我的index文件确实是有内容的，但依旧是空白显示，我也尝试将主题切换为原始<code>landscape</code> 主题，但并没有任何作用，最后看到有说是node版本问题，我的Node版本是v16.18.1，在一番百度下大概率是因为node版本过高的原因</p>
 <h3 id="卸载npm"><a href="#卸载npm" class="headerlink" title="卸载npm"></a>卸载npm</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm uninstall npm -g</span><br></pre></td></tr></table></figure>
 <h3 id="卸载node"><a href="#卸载node" class="headerlink" title="卸载node"></a>卸载node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum remove nodejs npm -y</span><br></pre></td></tr></table></figure>
