@@ -7,18 +7,24 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="搬砖小码农">
-<meta property="og:type" content="website">
-<meta property="og:title" content="鸡腿面加卤蛋的小站">
-<meta property="og:url" content="https://chaflee.github.io/charlesleeblog/archives/2022/08/">
+<meta name="description" content="问题记录上代码 123456void _getImage() async &amp;#123;    PickedFile pickedFile &#x3D; await picker.getImage(source: ImageSource.gallery);    setState(() &amp;#123;      image &#x3D; File(pickedFile.path);    &amp;#125;);  &amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter image_picker ios模拟器闪退问题">
+<meta property="og:url" content="https://chaflee.github.io/charlesleeblog/2023/02/21/Flutter%20image_picker%20ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E9%97%AA%E9%80%80%E9%97%AE%E9%A2%98/">
 <meta property="og:site_name" content="鸡腿面加卤蛋的小站">
-<meta property="og:description" content="搬砖小码农">
+<meta property="og:description" content="问题记录上代码 123456void _getImage() async &amp;#123;    PickedFile pickedFile &#x3D; await picker.getImage(source: ImageSource.gallery);    setState(() &amp;#123;      image &#x3D; File(pickedFile.path);    &amp;#125;);  &amp;#125;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaflee.github.io/charlesleeblog/img/404.jpg">
+<meta property="article:published_time" content="2023-02-21T08:11:44.000Z">
+<meta property="article:modified_time" content="2023-02-21T08:32:00.381Z">
 <meta property="article:author" content="Charles Lee">
+<meta property="article:tag" content="flutter">
+<meta property="article:tag" content="exception">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaflee.github.io/charlesleeblog/img/404.jpg">
 
 
-<title >鸡腿面加卤蛋的小站</title>
+<title >Flutter image_picker ios模拟器闪退问题</title>
 
 <!-- Favicon -->
 
@@ -59,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"chaflee.github.io","author":"Charles Lee","root":"/charlesleeblog/","typed_text":["a java developer","a little coder"],"theme_version":"2.0.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/avatar.jpg","icon16":"/img/avatar.jpg","icon32":"/img/avatar.jpg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":true,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"search":{"enable":true,"type":"local","domain":null,"path":"search.xml"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":false,"postUpdate":"2023-02-21 16:32:15"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-02-21 16:32:00"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/charlesleeblog/css/index.css?v=2.0.2" id="trm-switch-style">
@@ -234,7 +240,8 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
@@ -255,10 +262,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            The article archive
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            云间连下榻，<br>天上接行杯。
+                            Flutter image_picker ios模拟器闪退问题
                         </h1>
 
                         
@@ -268,7 +275,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        archives
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -300,7 +307,17 @@
 <div class="trm-main-card-frame trm-sidebar">
     <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
     
-        <!-- card header -->
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
 <div class="trm-mc-header">
     <div class="trm-avatar-frame trm-mb-20">
         <img alt="Avatar" class="trm-avatar" src="/charlesleeblog/img/avatar.jpg">
@@ -318,10 +335,10 @@
     
 </div>
 <!-- card header end -->
-        <!-- sidebar social -->
+                <!-- sidebar social -->
 
 <!-- sidebar social end -->
-        <!-- info -->
+                <!-- info -->
 <div class="trm-divider trm-mb-40 trm-mt-40"></div>
 <ul class="trm-table trm-mb-20">
     
@@ -355,7 +372,7 @@
 </ul>
 <!-- info end -->
 
-        
+                
     <div class="trm-divider trm-mb-40 trm-mt-40"></div>
     <!-- action button -->
     <div class="text-center">
@@ -366,6 +383,13 @@
     </div>
     <!-- action button end -->
 
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#问题记录"  data-scroll-to="#问题记录"><span class="toc-number">1.</span> <span class="toc-text">问题记录</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#解决方法"  data-scroll-to="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
+</div>
+            </div>
+        </div>
     
     </div>
 </div>
@@ -376,99 +400,89 @@
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
-                    <div class="row">
-    <div class="col-lg-12">
-        <div class="trm-card">
-            <div style="padding: 0 20px;">
-                
-                    <ul class="row trm-list" style="margin-bottom: 0px;"><li class="col-lg-4 trm-list-item" style="margin: 6px 0;"><a class="archive-list-link" href="/charlesleeblog/archives/2023/">2023</a><span class="archive-list-count">（2）</span></li><li class="col-lg-4 trm-list-item" style="margin: 6px 0;"><a class="archive-list-link" href="/charlesleeblog/archives/2022/">2022</a><span class="archive-list-count">（3）</span></li></ul>
-                
-            </div>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            02/21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            16:11
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Charles Lee
         </div>
     </div>
 </div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>上代码</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _getImage() <span class="keyword">async</span> &#123;</span><br><span class="line">    PickedFile pickedFile = <span class="keyword">await</span> picker.getImage(source: ImageSource.gallery);</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      image = File(pickedFile.path);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这是一段我在注册时选择头像时<code>onTap</code>所调用的函数，起初一直在chrome上运行调试，所以没有去点击测试</p>
+<p>然而后来在ios模拟器中运行的时候一点击App就闪退了</p>
+<p>百度了一下是ios系统的权限问题，需要在ios的配置文件中增加对访问照片权限的原因描述</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>打开<code>ios&gt;Runner&gt;info.plist</code>配置文件，加入以下参数</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">key</span>&gt;</span>NSPhotoLibraryUsageDescription<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>获取您的图片权限以上传头像<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>xcode下视图<br><a target="_blank" rel="noopener" href="https://imgse.com/i/pSj9GdS"><img src="https://s1.ax1x.com/2023/02/21/pSj9GdS.jpg" alt="pSj9GdS.jpg" loading="lazy" onerror='this.onerror=null;this.src="/charlesleeblog/img/404.jpg"'></a></p>
 
-<!-- history -->
-
-<div class="row">
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
     <div class="col-lg-12">
         <!-- title -->
         <h5 class="trm-title-with-divider">
-            
-                Archive for 2022
-            
-            <span data-number="01"></span>
+            Other Articles
+            <span data-number="02"></span>
         </h5>
     </div>
-    <div class="col-lg-12">
-        <!-- timeline -->
-        <div class="trm-timeline">
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/charlesleeblog/2023/02/20/Flutter%20Error%20Cannot%20run%20with%20sound%20null%20safety,%20because%20the%20following%20dependencies%20don%E2%80%98t%20support/" class="trm-cover-frame trm-anima-link">
             
-            <div class="trm-timeline-item trm-scroll-animation" data-scroll data-scroll-offset="40">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/charlesleeblog/2022/08/20/Vim%E9%85%8D%E7%BD%AE/" class="trm-anima-link">
-                                        Vim配置
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">08/20</li>
-                                        <li class="trm-accent-color">20:12</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
+            
+                <img alt="cover" class="no-fancybox" src="/charlesleeblog/img/source_cover/flutter.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /charlesleeblog/categories/Exception%E8%AE%B0%E5%BD%95/">
+                    Exception记录
+                </a>
             </div>
-            
-            <div class="trm-timeline-item trm-scroll-animation" data-scroll data-scroll-offset="40">
-                <div class="trm-timeline-mark-light"></div>
-                <div class="trm-timeline-mark"></div>
-                <div class="trm-a trm-timeline-content more">
-                    
-                        <div class="trm-card-header">
-                            <div class="trm-left-side">
-                                <h6>
-                                    <a href="/charlesleeblog/2022/08/08/Hexo%20Centos7%E9%83%A8%E7%BD%B2/" class="trm-anima-link">
-                                        Hexo Centos7部署
-                                    </a>
-                                </h6>
-                                <div class="trm-text-sm trm-accent-color trm-mt-15">
-                                    <ul class="trm-card-data trm-label ">
-                                        <li class="trm-accent-color">08/08</li>
-                                        <li class="trm-accent-color">10:35</li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div>
-            </div>
-            
+            <h5>
+                <a href="/charlesleeblog/2023/02/20/Flutter%20Error%20Cannot%20run%20with%20sound%20null%20safety,%20because%20the%20following%20dependencies%20don%E2%80%98t%20support/" class="trm-anima-link">
+                    Flutter Error Cannot run with sound null safety, because the following dependencies don‘t support
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/02/20</li>
+                <li>16:45</li>
+                
+                
+            </ul>
         </div>
-        <!-- timeline end -->
     </div>
 </div>
+    
+</div>
 
-<!-- history end -->
+    
 
-
-    <div class="trm-pagination">
-        <span class="page-number current">1</span>
-    </div>
-
-
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
 
 
 
@@ -520,6 +534,10 @@
             <!-- body end -->
 
             <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
     
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
@@ -578,6 +596,26 @@
     
 
     <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="https://unpkg.com/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"http://47.92.233.132:8080"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
     
 
 
