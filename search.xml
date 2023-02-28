@@ -161,4 +161,42 @@ don't support null safety:
         <tag>vim</tag>
       </tags>
   </entry>
+  <entry>
+    <title>若依ExcelUtil(poi)增加锁定列标识</title>
+    <url>/charlesleeblog/2023/02/28/%E8%8B%A5%E4%BE%9DExcelUtil%E5%A2%9E%E5%8A%A0%E9%94%81%E5%AE%9A%E5%88%97%E6%A0%87%E8%AF%86/</url>
+    <content><![CDATA[<p>最近碰到一个批量导入解析数据的需求，需求是导出一份价格数据Excel模板，在填写相关费用字段后导入系统进行更新操作</p>
+<p>用若依自带的<code>@Excel</code>注解基本可以实现大多数功能，但因为导出的数据中有一个主键ID字段，后端需要根据此字段进行数据更新操作，所以得保证该数据不会发生变化，当然在正常情况下肯定不会有什么问题，就怕用户误点，所以我想锁定不需要变动的列</p>
+<p>在百度后看到<code>poi</code>的<code>sheet</code>有一个设置表保护的属性</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Sheet</span> <span class="variable">sheet</span> <span class="operator">=</span> wb.createSheet();</span><br><span class="line"><span class="comment">// 设置表保护，密码为pwd</span></span><br><span class="line">sheet.protectSheet(<span class="string">&quot;pwd&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>但是该属性是在初始化创建sheet时添加的，意味着会全表锁定</p>
+<p>于是我在<code>@Excel</code>注解中加入了锁定标识字段</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isLocked</span><span class="params">()</span> <span class="keyword">default</span>  <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在阅读若依的<code>ExcelUtil</code>后我决定在<code>setDataValidation</code>方法中加入对<code>isLocked</code>的判断</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 因为开启了全表锁定，所以该判断的目的是给isLocked = false的列解锁</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (!attr.isLocked())&#123;</span><br><span class="line">    <span class="comment">// 获取列样式</span></span><br><span class="line">    <span class="type">CellStyle</span> <span class="variable">columnStyle</span> <span class="operator">=</span> sheet.getColumnStyle(column);</span><br><span class="line">    <span class="comment">// 设置该列解锁</span></span><br><span class="line">    columnStyle.setLocked(<span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在测试后发现导出的数据依旧是全表锁定的状态</p>
+<p>然后继续向上探索，发现了创建sheet表<code>createSheet()</code>方法其中的创建样式的<code>createStyles()</code></p>
+<p>其中的这段代码令我大为不解（主要是水平不够）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setAlignment(HorizontalAlignment.LEFT);</span><br><span class="line">styles.put(<span class="string">&quot;data1&quot;</span>, style);</span><br><span class="line"></span><br><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setAlignment(HorizontalAlignment.CENTER);</span><br><span class="line">styles.put(<span class="string">&quot;data2&quot;</span>, style);</span><br><span class="line"></span><br><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setAlignment(HorizontalAlignment.RIGHT);</span><br><span class="line">styles.put(<span class="string">&quot;data3&quot;</span>, style);</span><br></pre></td></tr></table></figure>
+<p>明明在上面已经创建了<code>data</code>的样式，为什么还需要在下面根据<code>Align</code>属性分别向<code>styles</code>中添加 <code>data1</code>、<code>data2</code>、<code>data3</code>的样式</p>
+<p>最后在<code>exportExcel() &gt; fillExcelData() &gt; addCell()</code>中找到了用处</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cell = row.createCell(column);</span><br><span class="line"><span class="type">int</span> <span class="variable">align</span> <span class="operator">=</span> attr.align().value();</span><br><span class="line"><span class="type">CellStyle</span> <span class="variable">style</span> <span class="operator">=</span> styles.get(<span class="string">&quot;data&quot;</span> + (align &gt;= <span class="number">1</span> &amp;&amp; align &lt;= <span class="number">3</span> ? align : <span class="string">&quot;&quot;</span>));</span><br><span class="line">cell.setCellStyle(style);</span><br></pre></td></tr></table></figure>
+<p>我的猜想：在创建sheet后<code>Align</code>属性是不会再发生变化的，所以才需要将各种对齐方式的<code>style</code>初始化好，方便后续根据<code>@Excel</code>中的<code>Align</code>属性判断需要哪个<code>data</code>样式</p>
+<p>顺着这个思路，我将<code>isLocked</code>属性也加入到初始创建<code>sheet</code>中</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setLocked(<span class="literal">false</span>);</span><br><span class="line">styles.put(<span class="string">&quot;data-unlock&quot;</span>, style);</span><br><span class="line"></span><br><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setAlignment(HorizontalAlignment.LEFT);</span><br><span class="line">style.setLocked(<span class="literal">false</span>);</span><br><span class="line">styles.put(<span class="string">&quot;data1-unlock&quot;</span>, style);</span><br><span class="line"></span><br><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setAlignment(HorizontalAlignment.CENTER);</span><br><span class="line">style.setLocked(<span class="literal">false</span>);</span><br><span class="line">styles.put(<span class="string">&quot;data2-unlock&quot;</span>, style);</span><br><span class="line"></span><br><span class="line">style = wb.createCellStyle();</span><br><span class="line">style.cloneStyleFrom(styles.get(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">style.setAlignment(HorizontalAlignment.RIGHT);</span><br><span class="line">style.setLocked(<span class="literal">false</span>);</span><br><span class="line">styles.put(<span class="string">&quot;data3-unlock&quot;</span>, style);</span><br></pre></td></tr></table></figure>
+<p>修改<code>addCell()</code>中的条件判断</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">CellStyle</span> <span class="variable">style</span> <span class="operator">=</span> styles.get(<span class="string">&quot;data&quot;</span> + (align &gt;= <span class="number">1</span> &amp;&amp; align &lt;= <span class="number">3</span> ? align : <span class="string">&quot;&quot;</span>) + (attr.isLocked() ? <span class="string">&quot;&quot;</span> : <span class="string">&quot;-unlock&quot;</span>));</span><br></pre></td></tr></table></figure>
+<p>最后测试结果：成功！！！</p>
+<p>最终效果</p>
+<p>ID列锁定<br><img src="https://charleslee1227.oss-cn-beijing.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230228140826.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/charlesleeblog/img/404.jpg"'><br>费用列正常输入<br><img src="https://charleslee1227.oss-cn-beijing.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230228140843.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/charlesleeblog/img/404.jpg"'></p>
+]]></content>
+      <categories>
+        <category>技术随笔</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>若依</tag>
+        <tag>poi</tag>
+      </tags>
+  </entry>
 </search>
