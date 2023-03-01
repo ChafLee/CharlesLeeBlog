@@ -146,6 +146,23 @@ don't support null safety:
       </tags>
   </entry>
   <entry>
+    <title>Shell数组添加元素</title>
+    <url>/charlesleeblog/2023/03/01/Shell%20%E6%95%B0%E7%BB%84%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<p>在Shell中，数组没有追加新元素的函数，只能通过下标来赋值</p>
+<p>所以可以通过获取数组的当前长度<code>$&#123;#variable[*]&#125;</code>作为其下标来赋值，以达到添加新元素的效果</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a=&quot;a&quot;</span><br><span class="line">b=&quot;b&quot;</span><br><span class="line">c=&quot;c&quot;</span><br><span class="line"></span><br><span class="line">array=()</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">array[$</span><span class="language-bash">&#123;<span class="comment">#array[*]&#125;]=a</span></span></span><br><span class="line"><span class="meta prompt_">array[$</span><span class="language-bash">&#123;<span class="comment">#array[*]&#125;]=b</span></span></span><br><span class="line"><span class="meta prompt_">array[$</span><span class="language-bash">&#123;<span class="comment">#array[*]&#125;]=c</span></span></span><br><span class="line"></span><br><span class="line">echo array: $&#123;array[*]&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">chmod</span> 777 array.sh</span><br><span class="line">$ ./array.sh</span><br><span class="line">array: a b c</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术随笔</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vim配置</title>
     <url>/charlesleeblog/2022/08/20/Vim%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="编辑VIM配置文件"><a href="#编辑VIM配置文件" class="headerlink" title="编辑VIM配置文件"></a>编辑VIM配置文件</h3><h4 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/share/vim/vimrc ~/.vimrc</span><br><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure>
