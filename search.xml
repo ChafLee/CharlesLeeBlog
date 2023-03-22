@@ -146,6 +146,19 @@ don't support null safety:
       </tags>
   </entry>
   <entry>
+    <title>Python使用cx_Oracle插入oracle数据库ORA-01036: illegal variable name/number</title>
+    <url>/charlesleeblog/2023/03/22/PythonxOracle/</url>
+    <content><![CDATA[<h1 id="Python使用cx-Oracle插入oracle数据库ORA-01036-illegal-variable-name-number"><a href="#Python使用cx-Oracle插入oracle数据库ORA-01036-illegal-variable-name-number" class="headerlink" title="Python使用cx_Oracle插入oracle数据库ORA-01036: illegal variable name/number"></a>Python使用cx_Oracle插入oracle数据库ORA-01036: illegal variable name/number</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">row = (a,) + (b,)</span><br><span class="line"><span class="built_in">print</span>(row)</span><br><span class="line">sql_insert1=<span class="string">&#x27;insert into test (a,b) values (%s, %s)&#x27;</span>                            </span><br><span class="line">cur1.execute(sql_insert1,row)</span><br></pre></td></tr></table></figure>
+<p>python在oracle执行这个报错，使用了tuple插入数据，后来发现应该写成:1,:2的格式：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sql_insert1=<span class="string">&#x27;insert into test(a,b) values (:1, :2)&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Exception记录</category>
+      </categories>
+      <tags>
+        <tag>oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Shell数组添加元素</title>
     <url>/charlesleeblog/2023/03/01/Shell%20%E6%95%B0%E7%BB%84%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<p>在Shell中，数组没有追加新元素的函数，只能通过下标来赋值</p>
